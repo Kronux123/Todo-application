@@ -1,0 +1,29 @@
+body{
+    overflow: hidden;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+
+
+.side-link{
+    color: white;
+    transition: all ease 200ms;
+    border-radius: 10px;
+    margin-top: 20px;
+
+}
+
+
+.side-link:hover{
+    color: rgb(149, 149, 7);
+}
+
+.active{
+    background-color: white;
+    color: black;
+}

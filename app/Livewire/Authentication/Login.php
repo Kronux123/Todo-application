@@ -26,7 +26,7 @@ class Login extends Component
         if($authenticated)
         {
             request()->session()->regenerate();
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
 
     }
