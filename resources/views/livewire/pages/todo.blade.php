@@ -2,7 +2,7 @@
     <div class="container-fluid d-flex justify-content-center p-3 mt-3 rounded " style="height: 100vh">
        <div class="container d-flex" style="gap: 2em">
         <div class="container" style="width: 400px">
-            <h1 class="text-center ">NEW TODO</h1>
+            <h1 class="text-danger text-center ">NEW TODO test</h1>
             <form action="">
                 <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
             </form>
