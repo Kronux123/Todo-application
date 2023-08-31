@@ -1,5 +1,6 @@
 <div>
     <div class="container-fluid d-flex justify-content-center p-3 mt-3 rounded " style="height: 100vh">
+
         <div class="container d-flex" style="gap: 2em">
             <div class="container" style="width: 400px">
                 <h1 class="text-dark text-center ">NEW TODO</h1>
@@ -76,6 +77,7 @@
                         </div>
                     @endif
                 @endforeach
+
 
                 <div class="container mt-3 ">
                     {{ $todos->links() }}
