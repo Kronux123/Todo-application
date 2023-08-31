@@ -10,7 +10,7 @@
     <title>{{ $slot }}</title>
 </head>
 
-<body style="overflow: hidden">
+<body >
     <nav class="navbar p-3  navbar-dark bg-primary d-flex" style="justify-content: space-between">
         <div>
 
