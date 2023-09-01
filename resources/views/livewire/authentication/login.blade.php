@@ -1,4 +1,4 @@
-<div>
+<div wire:poll>
     <div class="container-fluid p-5 d-flex justify-content-center align-items-center " style="height: 500px">
         <div class="container rounded bg-primary" style="max-width: 500px; margin-top: 5em">
             <h1 class="text-center text-white p-3">LOGIN</h1>

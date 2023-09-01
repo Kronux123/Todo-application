@@ -15,4 +15,6 @@ class TodoModel extends Model
         'todo',
         'due_date',
     ];
+
+    protected $primaryKey = 'todo_id';
 }

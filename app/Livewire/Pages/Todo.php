@@ -20,39 +20,37 @@ class Todo extends Component
 
     public $todoID;
 
-    #[Rule('required|min:3|max:50')]
+    
     public $todo_update;
-    #[Rule('required')]
     public $due_date_update;
 
 
-    #[Rule('required|min:3|max:50')]
+    
     public $todo = '';
-    #[Rule('required')]
     public $due_date = '';
 
-
+    public $deleteID;
     
 
     public function addTodo()
     {
-
-        $validated = $this->validate();
+      
+        $validated = $this->validate([
+            'todo' => 'required|min:3|max:50',
+            'due_date' => 'required',
+        ]);
+        
 
         $user = auth()->user();
         $store = $user->Todos()->create([
             'todo' => $validated['todo'],
-            'due_date' => $validated['due_date']
+            'due_date' => $validated['due_date'],
         ]);
 
-        if($store)
+        if ($store)
         {
-            $this->reset(
-                'todo',
-                'due_date'
-            );
-
-            session()->flash('success', 'You have successfully added a new todo');
+            $this->reset('todo', 'due_date');
+            session()->flash('success', 'You have successfully added a new Todo');
         }
     }
 
@@ -66,10 +64,53 @@ class Todo extends Component
         $this->due_date_update = $todo->due_date;
     }
 
-    public function update(TodoModel $todo)
+    public function cancel_update()
     {
-
+        $this->reset('todoID');
     }
+
+    public function update($todo)
+    {
+        $validated = $this->validate([
+            'todo_update' => 'required', 
+            'due_date_update' => 'required'
+        ]);
+
+
+        $todo = TodoModel::where('todo_id', $todo)->first();
+        $update = $todo->update([
+            'todo' => $validated['todo_update'],
+            'due_date' => $validated['due_date_update'],
+        ]);
+
+        if ($update)
+        {
+            $this->reset('todoID', 'todo_update', 'due_date_update');
+        }
+        
+    }
+
+    //! DELETE FUNCTIONALITIES ---------------------------
+
+    public function setDeleteId($id)
+    {
+        $this->deleteID = $id;
+        
+    }
+
+    public function delete()
+    {
+        
+        $todo = TodoModel::where('todo_id', $this->deleteID)->first();
+        $todo->delete();
+
+        session()->flash('success', 'You have successfully deleted the todo');
+        $this->dispatch('hide:delete-modal');
+    }
+
+
+
+    //!-------------------------------------------------------
 
     public function render()
     {
