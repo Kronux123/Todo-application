@@ -18,7 +18,7 @@
     <nav class="navbar p-3  navbar-dark bg-primary d-flex" style="justify-content: space-between">
         <div>
 
-            <a href="{{ route('dashboard') }}" wire:navigate class="navbar-brand">TODO</a>
+            <a href="{{ route('dashboard') }}"  class="navbar-brand">TODO</a>
         </div>
 
         <div>
@@ -27,8 +27,8 @@
 
 
 
-                    <a href="{{ route('register') }}" class="nav-link" wire:navigate>{{ Auth::user()->name }}</a>
-                    @livewire('components.logut')
+                    <a href="{{ route('register') }}" class="nav-link" >{{ Auth::user()->name }}</a>
+                    @livewire('components.logout')
 
 
                 </li>
@@ -42,10 +42,10 @@
                 <div class="container side-link-container p-3">
                     <a href="{{ route('dashboard') }}"
                         class="{{ Route::is('dashboard') ? 'active' : '' }} nav-link side-link text-center"
-                        wire:navigate>Home</a>
+                       >Home</a>
                     <a href="{{ route('todo') }}"
                         class="{{ Route::is('todo') ? 'active' : '' }} nav-link side-link text-center"
-                        wire:navigate>Todo</a>
+                        >Todo</a>
 
                 </div>
             </aside>

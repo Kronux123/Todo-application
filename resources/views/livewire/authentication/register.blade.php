@@ -4,7 +4,10 @@
             <h1 class="text-center text-white p-3">REGISTER</h1>
 
             <div class="container mt-5 ">
-                <form >
+                @include('messages.success')
+                @include('messages.fail')
+                <form wire:submit='registerUser'>
+                    @csrf
                     <div class="form-floating mt-2">
                         <input type="text"  id="name" placeholder="Name" wire:model='name' class="form-control form-control-sm">
                         <label for="name">Name</label>
@@ -43,7 +46,7 @@
                     @enderror
 
                     <div class="form-group mt-3 d-flex   align-items-center" style="justify-content: space-between">
-                        <button wire:click.prevent='registerUser' class="btn btn-success">Register</button>
+                        <button  class="btn btn-success">Register</button>
                         
                         <p>Have an account? <a href="{{route('login')}}" class="nav-link text-white" wire:navigate>Login</a></p>
                     </div>

@@ -1,10 +1,13 @@
-<div wire:poll>
+<div>
     <div class="container-fluid p-5 d-flex justify-content-center align-items-center " style="height: 500px">
         <div class="container rounded bg-primary" style="max-width: 500px; margin-top: 5em">
             <h1 class="text-center text-white p-3">LOGIN</h1>
 
             <div class="container mt-5 ">
-                <form action="">
+                @include('messages.success')
+                @include('messages.fail')
+                <form action="" wire:submit='authenticate'>
+                    @csrf
 
 
                     <div class="form-floating mt-2">
@@ -27,7 +30,7 @@
                     @enderror
 
                     <div class="form-group mt-3 d-flex   align-items-center" style="justify-content: space-between">
-                        <button class="btn btn-success" wire:click.prevent='authenticate'>Login</button>
+                        <button class="btn btn-success" >Login</button>
 
                         <p>Doesn't have an account? <a href="{{ route('register') }}" class="nav-link text-white"
                                 wire:navigate>Register</a></p>

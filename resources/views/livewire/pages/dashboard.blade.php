@@ -13,7 +13,7 @@
 
 
 <script>
-    document.addEventListener('livewire:navigated', () => {
+   
         const ctx = document.getElementById('myChart');
 
         new Chart(ctx, {
@@ -34,5 +34,5 @@
                 }
             }
         });
-    })
+  
 </script>

@@ -23,7 +23,7 @@ Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
 
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth', 'auth.session')->group(function(){
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/todo', Todo::class)->name('todo');
 });

@@ -28,6 +28,10 @@ class Login extends Component
             request()->session()->regenerate();
             return redirect()->route('dashboard');
         }
+        else
+        {
+            session()->flash('fail', "You don't have an account, register first");
+        }
 
     }
 

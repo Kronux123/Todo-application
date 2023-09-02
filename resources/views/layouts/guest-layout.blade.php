@@ -13,15 +13,15 @@
     <nav class="navbar p-3 navbar-expand navbar-dark bg-primary d-flex" style="justify-content: space-between">
         <div>
 
-            <a href="{{ URL('/') }}" wire:navigate class="navbar-brand">HOME</a>
+            <a href="{{ URL('/') }}"  class="navbar-brand">HOME</a>
         </div>
 
         <div>
             <ul class="navbar-nav me-auto ">
                 <li class="nav-item d-flex">
                     @guest
-                        <a href="{{ route('register') }}" class="nav-link" wire:navigate>Register</a>
-                        <a href="{{ route('login') }}" class="nav-link" wire:navigate>Login</a>
+                        <a href="{{ route('register') }}" class="nav-link">Register</a>
+                        <a href="{{ route('login') }}" class="nav-link" >Login</a>
                     @endguest
 
                     @auth
