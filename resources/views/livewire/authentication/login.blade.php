@@ -6,7 +6,7 @@
             <div class="container mt-5 ">
                 @include('messages.success')
                 @include('messages.fail')
-                <form action="" wire:submit='authenticate'>
+                <form action="" >
                     @csrf
 
 
@@ -30,7 +30,7 @@
                     @enderror
 
                     <div class="form-group mt-3 d-flex   align-items-center" style="justify-content: space-between">
-                        <button class="btn btn-success" >Login</button>
+                        <button wire:click.prevent='authenticate' class="btn btn-success" >Login</button>
 
                         <p>Doesn't have an account? <a href="{{ route('register') }}" class="nav-link text-white"
                                 wire:navigate>Register</a></p>

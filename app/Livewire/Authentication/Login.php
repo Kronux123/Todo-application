@@ -5,12 +5,14 @@ namespace App\Livewire\Authentication;
 use App\Livewire\Pages\Dashboard;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 
 class Login extends Component
 {
-    #[Layout('layouts.guest-layout')]
+    #[Layout('components.layouts.app')]
+
     #[Title('Login Page')]
 
     public $email, $password;
@@ -26,8 +28,8 @@ class Login extends Component
 
         if($authenticated)
         {
-            request()->session()->regenerate();
-            return redirect()->route('dashboard');
+            Session::regenerate();
+            return $this->redirect('dashboard', navigate: true);
         }
         else
         {

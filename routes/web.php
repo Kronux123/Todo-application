@@ -18,12 +18,15 @@ use App\Livewire\Welcome;
 |
 */
 
-Route::get('/', Welcome::class)->name('home');
-Route::get('/login', Login::class)->name('login');
-Route::get('/register', Register::class)->name('register');
+Route::middleware('web')->group(function(){
+
+    Route::get('/', Welcome::class)->name('home');
+    Route::get('/login', Login::class)->name('login');
+    Route::get('/register', Register::class)->name('register');
+});
 
 
-Route::middleware('auth',)->group(function(){
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/todo', Todo::class)->name('todo');
+Route::middleware('auth', ['web'])->group(function(){
+    Route::get('/dashboard', Dashboard::class)->name('dashboard')->lazy();
+    Route::get('/todo', Todo::class)->name('todo')->lazy();
 });

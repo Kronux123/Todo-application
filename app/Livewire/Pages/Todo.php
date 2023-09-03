@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 
 
 
-#[Layout('layouts.auth-layout')]
+#[Layout('components.layouts.app')]
 #[Title('Todo')]
 class Todo extends Component
 {

@@ -1,6 +1,6 @@
 <div>
     <div>
-        <form wire:submit='logout'>
+        <form wire:submit='logout' >
             @csrf
             <button  class="nav-link">Logout</button>
         </form>

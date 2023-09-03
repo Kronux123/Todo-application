@@ -6,7 +6,7 @@
             <div class="container mt-5 ">
                 @include('messages.success')
                 @include('messages.fail')
-                <form wire:submit='registerUser'>
+                <form >
                     @csrf
                     <div class="form-floating mt-2">
                         <input type="text"  id="name" placeholder="Name" wire:model='name' class="form-control form-control-sm">
@@ -46,7 +46,7 @@
                     @enderror
 
                     <div class="form-group mt-3 d-flex   align-items-center" style="justify-content: space-between">
-                        <button  class="btn btn-success">Register</button>
+                        <button  class="btn btn-success" wire:click.prevent='registerUser'>Register</button>
                         
                         <p>Have an account? <a href="{{route('login')}}" class="nav-link text-white" wire:navigate>Login</a></p>
                     </div>

@@ -9,7 +9,7 @@ use App\Models\User;
 
 class Register extends Component
 {
-    #[Layout('layouts.guest-layout')]
+    #[Layout('components.layouts.app')]
     #[Title('Register Page')]
 
     public $name, $email, $password, $password_confirmation;

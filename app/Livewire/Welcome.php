@@ -8,7 +8,8 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 class Welcome extends Component
 {
-    #[Layout('layouts.guest-layout')]
+    #[Layout('components.layouts.app')]
+
     #[Title('Welcome Page')]
 
     

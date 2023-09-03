@@ -2,16 +2,15 @@
 
 namespace App\Livewire\Pages;
 
-use App\Models\Image;
+
 use Livewire\Attributes\Layout;
 use Livewire\Component;
-use Asantibanez\LivewireCharts\Models\ColumnChartModel;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 
-#[Layout('layouts.auth-layout')]
+#[Layout('components.layouts.app')]
 #[Title('Dashboard')]
 class Dashboard extends Component
 {
