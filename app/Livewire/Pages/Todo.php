@@ -6,17 +6,19 @@ use Livewire\Attributes\Rule;
 
 use Livewire\Component;
 use App\Models\TodoModel;
+use Livewire\Attributes\Title;
 use Livewire\WithPagination;
 
 
 
 
-
+#[Layout('layouts.auth-layout')]
+#[Title('Todo')]
 class Todo extends Component
 {
     use WithPagination;
 
-    #[Layout('layouts.auth-layout')]
+    
 
     public $todoID;
 

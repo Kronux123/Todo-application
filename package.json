@@ -9,5 +9,10 @@
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^0.8.0",
         "vite": "^4.0.0"
-    }
+    },
+    "post-autoload-dump": [
+        "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+        "@php artisan package:discover --ansi",
+        "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
+      ]
 }

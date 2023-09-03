@@ -19,15 +19,10 @@
         <div>
             <ul class="navbar-nav me-auto ">
                 <li class="nav-item d-flex">
-                    @guest
+
                         <a href="{{ route('register') }}" class="nav-link">Register</a>
                         <a href="{{ route('login') }}" class="nav-link" >Login</a>
-                    @endguest
-
-                    @auth
-                        <a href="{{ route('register') }}" class="nav-link" wire:navigate>{{ Auth::user()->name }}</a>
-                        @livewire('components.logut')
-                    @endauth
+                    
 
                 </li>
             </ul>

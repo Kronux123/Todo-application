@@ -2,19 +2,48 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\Image;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Asantibanez\LivewireCharts\Models\ColumnChartModel;
+use Livewire\Attributes\Rule;
+use Livewire\Attributes\Title;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
+#[Layout('layouts.auth-layout')]
+#[Title('Dashboard')]
 class Dashboard extends Component
 {
+    use WithFileUploads;
 
-    #[Layout('layouts.auth-layout')]
+    #[Rule('required|min:3|max:20')]
+    public $title = '';
+    #[Rule('required|image')]
+    public $image = '';
+
+    public function store()
+    {
+        $validated = $this->validate();
+        $user = Auth::user();
+
+        $user->Images()->create([
+            'title' => $validated['title'],
+            'image' => $validated['image']->store('public/images'),
+        ]);
+
+        $this->reset('title', 'image');
+        session()->flash('success', 'successfully added a new image');
+    }
+
+
     public function render()
     {
-       
+        $user = Auth::user();
+        $images = $user->Images()->get();
+        
 
 
-        return view('livewire.pages.dashboard' );
+        return view('livewire.pages.dashboard', compact('images'));
     }
 }

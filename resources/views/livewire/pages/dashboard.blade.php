@@ -1,38 +1,47 @@
 <div>
     <div class="container-fluid p-3 mt-3 rounded " style="height: 100vh">
+        <div class="row">
+            <div class="col-3 ">
+                <div class="container rounded bg-dark p-3">
+                    @include('messages.success')
+                    <form wire:submit='store'>
+                        <div class="form-floating">
+                            <input wire:model='title' type="text" class="form-control" id="title"
+                                placeholder="title">
+                            <label for="title">Title</label>
+                        </div>
+                        @error('title')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        <div class="form-group mt-3">
+                            <input wire:model='image' type="file" accept="image/png, image/jpeg" src=""
+                                alt="" class="form-control">
 
-        <div>
-            <canvas id="myChart"></canvas>
+                        </div>
+                        @error('image')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+
+                        <div class="form-group mt-3">
+                            <button class="btn btn-success btn-sm">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="container d-flex m-3" style="flex-wrap: wrap">
+                    @foreach ($images as $image)
+                        <div class="card m-3" style="width: 18rem;">
+                            <img src="{{Storage::url($image->image)}}" class="card-img-top" alt="..." style="background-size: contain;">
+                            <div class="card-body">
+                                <p>{{$image->title}}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
 
     </div>
 </div>
-
-
-
-
-
-<script>
-   
-        const ctx = document.getElementById('myChart');
-
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: 'Changes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-  
-</script>

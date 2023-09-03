@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(TodoModel::class, 'userID');
     }
+
+    public function Images()
+    {
+        return $this->hasMany(Image::class, 'userID');
+    }
 }
